@@ -1,0 +1,6 @@
+//Action types
+export const CARS_FETCH_BEGIN = 'CARS_FETCH_BEGIN_BEGIN';
+export const CARS_FETCH_SUCCESS = 'CARS_FETCH_SUCCESS';
+export const CARS_FETCH_ERROR = 'CARS_FETCH_ERROR';
+
+export const TOGGLE_CAR_FAV = 'TOGGLE_CAR_FAV';

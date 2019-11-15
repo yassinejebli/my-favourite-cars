@@ -1,34 +1,29 @@
-import React, {useEffect} from 'react';
+import React from 'react';
+import { Provider } from 'react-redux';
 import {
   SafeAreaView,
-  StyleSheet,
   ScrollView
 } from 'react-native';
-import Card from "./components/Card";
-import styled from 'styled-components/native';
+import {PersistGate} from "redux-persist/integration/react";
+import {persistor, store} from "./store/store";
+import CarList from "./screens/car-list/CarList";
+import {HeaderText, Padding, StyledActivityIndicator, StyledSafeAreaView} from "./App.css";
 
 const App  = () => {
-
-
   return (
-      <StyledSafeAreaView>
-          <ScrollView>
-             <Card
-                 year={1998}
-                 model={'MG B Roadster'}
-                 maker={'MG'}
-                 imageURL={'https://uploads-dev.api.gapless-app.com/vehicle_image/vehicle_image-155fa5ae-00a0-11ea-84e3-4371baa68b28.jpg'}
-             />
-
-          </ScrollView>
-      </StyledSafeAreaView>
+      <Provider store={store}>
+          <PersistGate loading={<StyledActivityIndicator />} persistor={persistor}>
+              <StyledSafeAreaView>
+                  <ScrollView>
+                      <Padding>
+                          <HeaderText>Garage</HeaderText>
+                          <CarList />
+                      </Padding>
+                  </ScrollView>
+              </StyledSafeAreaView>
+          </PersistGate>
+      </Provider>
   );
 };
-
-
-const StyledSafeAreaView = styled(SafeAreaView)`
-  background-color: #efedee;
-  flex: 1;
-`;
 
 export default App;

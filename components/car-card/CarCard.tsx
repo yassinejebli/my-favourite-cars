@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
-import StarFilledIcon from "./svg/StarFilled";
-import StarNotFilledIcon from "./svg/StarNotFilled";
+import StarFilledIcon from "../svg/StarFilled";
+import StarNotFilledIcon from "../svg/StarNotFilled";
 import {
     FlexRow, FlexRowSpaceBetween, HorizontalLine, InfoWrapper, ModelText, StyledImage, StyledText, VerticalLine,
     Wrapper
-} from "./Card.css";
+} from "./CarCard.css";
 
 interface ICardProps{
     imageURL: string;
@@ -14,14 +14,14 @@ interface ICardProps{
     isFav: boolean;
 }
 
-const Card  = ({model, year, maker, imageURL, isFav = false}: ICardProps) => {
+const CarCard  = ({model, year, maker, imageURL, isFav = true}: ICardProps) => {
     return (
         <Wrapper>
             <StyledImage source={{uri: imageURL}} />
             <InfoWrapper>
                 <FlexRowSpaceBetween>
                     <ModelText>{model}</ModelText>
-                    {isFav ? <StarFilledIcon fill={'orange'} />
+                    {isFav ? <StarFilledIcon fill={'#f9e26b'} />
                         :
                         <StarNotFilledIcon />
                     }
@@ -41,4 +41,4 @@ const Card  = ({model, year, maker, imageURL, isFav = false}: ICardProps) => {
     );
 };
 
-export default Card;
+export default CarCard;

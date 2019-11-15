@@ -14,9 +14,9 @@ export interface ICarCardProps{
     isFav: boolean;
 }
 
-const CarCard  = ({model, year, maker, imageURL, isFav}: ICarCardProps) => {
+const CarCard  = ({model, year, maker, imageURL, isFav, style}: ICarCardProps&{style: string}) => {
     return (
-        <Wrapper>
+        <Wrapper style={style}>
             {imageURL?<StyledImage source={{uri: imageURL}} />:<StyledImage source={require('../../assets/images/placeholder.png')} />}
             <InfoWrapper>
                 <FlexRowSpaceBetween>

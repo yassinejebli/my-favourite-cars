@@ -1,7 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import {
-  SafeAreaView,
   ScrollView
 } from 'react-native';
 import {PersistGate} from "redux-persist/integration/react";

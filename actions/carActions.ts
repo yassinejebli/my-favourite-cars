@@ -25,7 +25,6 @@ const carsFetchError = () => {
 export const toggleCarFavAction = (carFavItem) => {
     return (dispatch) => {
         dispatch({type: TOGGLE_CAR_FAV, carFavItem});
-        // dispatch(refreshCarList());
     }
 };
 //////////////////////// End internal actions
@@ -35,7 +34,6 @@ export const getCarListAction = () => {
     return (dispatch) => {
         dispatch(carsFetchBegin());
         getCars().then(response=>{
-            //Already sorted on the backend
             dispatch(carsFetchSuccess(response.items));
         }).catch(error => {
             dispatch(carsFetchError());

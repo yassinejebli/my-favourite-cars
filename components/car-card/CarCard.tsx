@@ -6,18 +6,18 @@ import {
     Wrapper
 } from "./CarCard.css";
 
-interface ICardProps{
-    imageURL: string;
+export interface ICarCardProps{
+    imageURL?: string;
     model: string;
     maker: string;
     year: number;
     isFav: boolean;
 }
 
-const CarCard  = ({model, year, maker, imageURL, isFav = true}: ICardProps) => {
+const CarCard  = ({model, year, maker, imageURL, isFav}: ICarCardProps) => {
     return (
         <Wrapper>
-            <StyledImage source={{uri: imageURL}} />
+            {imageURL?<StyledImage source={{uri: imageURL}} />:<StyledImage source={require('../../assets/images/placeholder.png')} />}
             <InfoWrapper>
                 <FlexRowSpaceBetween>
                     <ModelText>{model}</ModelText>

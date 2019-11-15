@@ -1,7 +1,10 @@
 import React, {useEffect} from 'react';
-import styled from 'styled-components/native';
 import StarFilledIcon from "./svg/StarFilled";
 import StarNotFilledIcon from "./svg/StarNotFilled";
+import {
+    FlexRow, FlexRowSpaceBetween, HorizontalLine, InfoWrapper, ModelText, StyledImage, StyledText, VerticalLine,
+    Wrapper
+} from "./Card.css";
 
 interface ICardProps{
     imageURL: string;
@@ -37,52 +40,5 @@ const Card  = ({model, year, maker, imageURL, isFav = false}: ICardProps) => {
         </Wrapper>
     );
 };
-
-
-const Wrapper = styled.View`
-`;
-
-const StyledImage = styled.Image`
-    height: 270px;
-`;
-
-const InfoWrapper = styled.View`
-    padding: 24px 16px;
-    background-color: #ffffff;
-    box-shadow: 0 6px 6px #dbd9da;
-`;
-
-const FlexRow = styled.View`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-`;
-
-const FlexRowSpaceBetween = styled(FlexRow)`
-    justify-content: space-between;
-`;
-
-const ModelText = styled.Text`
-    font-weight: bold;
-    color: #000000;
-    font-size: 24px;
-`;
-
-const HorizontalLine = styled.View`
-    background-color: #aeaeae;
-    height: 1px;
-    margin: 16px 0;
-`;
-
-const VerticalLine = styled.View`
-    background-color: #545454;
-    width: 1px;
-    height: 18px;
-    margin: 0 16px;
-`;
-
-const StyledText = styled.Text`
-    color: #545454;
-`;
 
 export default Card;

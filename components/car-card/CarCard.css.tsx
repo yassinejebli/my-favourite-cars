@@ -6,7 +6,7 @@ export const Wrapper = styled.View`
 export const StyledImage = styled.Image`
     height: 270px;
     width: 100%;
-    background-color: #ffffff;
+    background-color: #dfdfdf;
 `;
 
 export const InfoWrapper = styled.View`

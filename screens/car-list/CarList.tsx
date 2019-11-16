@@ -11,7 +11,9 @@ const CarList  = ({}) => {
     const {isLoading, error, carList} = useSelector(state=>state);
 
     useEffect(()=>{
-        dispatch(getCarListAction());
+        // if carList is empty => don't fetch data from server, redux-persist will use the persisted car list from AsyncStorage
+        if(carList.length===0)
+            dispatch(getCarListAction());
     },[]);
 
     if(error)
@@ -36,6 +38,7 @@ const CarList  = ({}) => {
                 carList.sort((x: ICarCardProps,y: ICarCardProps) => (x.isFav === y.isFav)? 0 : x.isFav ? -1 : 1)
                     .map(({year, model, heroImage, isFav}, index)=>(
                     <StyledCarCard
+                        key={model}
                         year={year}
                         model={model}
                         maker={'MG'}

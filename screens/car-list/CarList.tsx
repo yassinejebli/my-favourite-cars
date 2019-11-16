@@ -1,7 +1,5 @@
 import React, {useEffect} from 'react';
-import styled from 'styled-components/native';
-import CarCard from "../../components/car-card/CarCard";
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
 import {getCarListAction} from "../../actions/carActions";
 import {StyledCarCard, Wrapper} from "./CarList.css";
 
@@ -17,11 +15,12 @@ const CarList  = ({}) => {
     return (
         <Wrapper>
             {
-                carList.map(({year, model, heroImage}, index)=>(
+                carList.map(({year, model, heroImage, isFav}, index)=>(
                     <StyledCarCard
                         year={year}
                         model={model}
                         maker={'MG'}
+                        isFav={isFav}
                         imageURL={heroImage&&heroImage.url}
                         isFirst={index===0}
                     />

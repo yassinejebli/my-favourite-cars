@@ -47,3 +47,7 @@ export const VerticalLine = styled.View`
 export const StyledText = styled.Text`
     color: #545454;
 `;
+
+export const ClickableFavIcon = styled.TouchableOpacity`
+    padding: 8px; // increase the clickable area
+`;

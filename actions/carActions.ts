@@ -22,10 +22,10 @@ const carsFetchError = () => {
     };
 };
 
-export const toggleCarFavAction = (carFavItem) => {
-    return (dispatch) => {
-        dispatch({type: TOGGLE_CAR_FAV, carFavItem});
-    }
+export const toggleCarFavAction = (selectedCarModel) => {
+    return {
+        type: TOGGLE_CAR_FAV, selectedCarModel
+    };
 };
 //////////////////////// End internal actions
 

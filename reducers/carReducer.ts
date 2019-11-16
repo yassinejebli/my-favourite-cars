@@ -5,12 +5,12 @@ import {
 
 const initialState = {
     carList: [],
-    carFavItem: null, //for toggle param
+    selectedCarModel: null, //for toggle param
     isLoading: false,
     error: false
 };
 
-const carReducer = (state = initialState, {type, carList, carFavItem}) => {
+const carReducer = (state = initialState, {type, carList, selectedCarModel}) => {
     switch(type) {
         case CARS_FETCH_BEGIN:
             return {...state, error: false, isLoading: true };
@@ -20,7 +20,7 @@ const carReducer = (state = initialState, {type, carList, carFavItem}) => {
             return {...state, error: true, isLoading: false };
         case TOGGLE_CAR_FAV:
             return {...state, isLoading: false, error: false, carList: state.carList.map((carItem)=>
-                    carFavItem.model === carItem.model ? ({...carItem, isFav: !carItem.isFav}) : carItem)};
+                    selectedCarModel === carItem.model ? ({...carItem, isFav: !carItem.isFav}) : carItem)};
         default:
             return state;
     }

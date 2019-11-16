@@ -9,7 +9,7 @@ import {
 } from "./CarCard.css";
 import {toggleCarFavAction} from "../../actions/carActions";
 
-interface ICarCardProps{
+export interface ICarCardProps{
     imageURL?: string;
     model: string;
     maker: string;

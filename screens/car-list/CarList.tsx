@@ -1,7 +1,9 @@
 import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {getCarListAction} from "../../actions/carActions";
-import {StyledCarCard, Wrapper} from "./CarList.css";
+import {ErrorText, FlexCenterWrapper, StyledCarCard, Wrapper} from "./CarList.css";
+import {ActivityIndicator} from "react-native";
+import {ICarCardProps} from "../../components/car-card/CarCard";
 
 
 const CarList  = ({}) => {
@@ -12,10 +14,27 @@ const CarList  = ({}) => {
         dispatch(getCarListAction());
     },[]);
 
+    if(error)
+        return (
+            <FlexCenterWrapper>
+                <ErrorText>
+                    Oops! Fetching data failed
+                </ErrorText>
+            </FlexCenterWrapper>
+        );
+
+    if(isLoading)
+        return (
+            <FlexCenterWrapper>
+                <ActivityIndicator size="large" color="#0000ff" />
+            </FlexCenterWrapper>
+        );
+
     return (
         <Wrapper>
             {
-                carList.map(({year, model, heroImage, isFav}, index)=>(
+                carList.sort((x: ICarCardProps,y: ICarCardProps) => (x.isFav === y.isFav)? 0 : x.isFav ? -1 : 1)
+                    .map(({year, model, heroImage, isFav}, index)=>(
                     <StyledCarCard
                         year={year}
                         model={model}

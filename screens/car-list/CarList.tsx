@@ -11,7 +11,7 @@ const CarList  = ({}) => {
     const {isLoading, error, carList} = useSelector(state=>state);
 
     useEffect(()=>{
-        // if carList is empty => don't fetch data from server, redux-persist will use the persisted car list from AsyncStorage
+        // if carList is not empty => don't fetch data from server, redux-persist will use the persisted car list from AsyncStorage
         if(carList.length===0)
             dispatch(getCarListAction());
     },[]);

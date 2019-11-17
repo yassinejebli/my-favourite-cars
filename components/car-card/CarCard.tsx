@@ -12,14 +12,14 @@ import {toggleCarFavAction} from "../../actions/carActions";
 export interface ICarCardProps{
     imageURL?: string;
     model: string;
-    maker: string;
+    make: string;
     year: number;
     isFav: boolean;
 }
 
 type AllProps = ICarCardProps&{style: string}
 
-const CarCard  = ({model, year, maker, imageURL, isFav, style}: AllProps) => {
+const CarCard  = ({model, year, make, imageURL, isFav, style}: AllProps) => {
     const dispatch = useDispatch();
 
     return (
@@ -38,7 +38,7 @@ const CarCard  = ({model, year, maker, imageURL, isFav, style}: AllProps) => {
                 <HorizontalLine />
                 <FlexRow>
                     <StyledText>
-                        {maker}
+                        {make}
                     </StyledText>
                     <VerticalLine />
                     <StyledText>

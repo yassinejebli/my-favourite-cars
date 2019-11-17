@@ -36,12 +36,12 @@ const CarList  = ({}) => {
         <Wrapper>
             {
                 carList.sort((x: ICarCardProps,y: ICarCardProps) => (x.isFav === y.isFav)? 0 : x.isFav ? -1 : 1)
-                    .map(({year, model, heroImage, isFav}, index)=>(
+                    .map(({year, model, make, heroImage, isFav}: ICarCardProps&{heroImage: {url?:string}}, index: number)=>(
                     <StyledCarCard
                         key={model}
                         year={year}
                         model={model}
-                        maker={'MG'}
+                        make={make}
                         isFav={isFav}
                         imageURL={heroImage?.url}
                         isFirst={index===0}

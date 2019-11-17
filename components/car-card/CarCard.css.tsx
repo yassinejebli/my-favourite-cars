@@ -45,6 +45,7 @@ export const VerticalLine = styled.View`
 `;
 
 export const StyledText = styled.Text`
+    font-size: 18px;
     color: #545454;
 `;
 

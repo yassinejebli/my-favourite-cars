@@ -43,7 +43,7 @@ const CarList  = ({}) => {
                         model={model}
                         maker={'MG'}
                         isFav={isFav}
-                        imageURL={heroImage&&heroImage.url}
+                        imageURL={heroImage?.url}
                         isFirst={index===0}
                     />
                 ))
